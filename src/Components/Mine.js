@@ -11,8 +11,9 @@ import WhatsappSendData from "./WhatsappSendData";
 export default function Mine() {
     const {product, setproduct} = useContext(ProductContext)
     const ReturnProduct = product.map((t) => {
-        return <CardContext key={t.id} value={t}/>
-    })
+        return <CardContext key={t.id} value={t} />;
+    });
+
     const total = product.reduce((acc, p) => Number(acc) + Number(p.pric),0)
     useEffect(() => {
         const storageProduct = JSON.parse(localStorage.getItem("product")) ?? [];

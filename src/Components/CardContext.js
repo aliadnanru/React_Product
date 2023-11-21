@@ -19,7 +19,7 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
 export default function CardContext({value}) {
-    // const [Cash,setCash]=useState(false)
+    const [Cash,setCash]=useState(false)
     const [open, setOpen] = React.useState(false);
     const {product, setproduct} = useContext(ProductContext)
     // const {inpute, setinpute} = useContext(InputeContext)
@@ -72,81 +72,84 @@ export default function CardContext({value}) {
 
 
     function HandelCashClick() {
-        const Data_Up =product.map((Cash)=>{
-            if(Cash.id===value.id){
-                Cash.cash=!Cash.cash
+        const CashClick = product.map((t) => {
+            if (t.id === value.id) {
+                t.cash = !t.cash
             }
+            return t
         })
-        setproduct(Data_Up)
+        console.log(CashClick)
+        localStorage.setItem("product", JSON.stringify(CashClick))
+        setproduct(CashClick)
     }
 
-        return (
-            <>
-                {/*Dialog*/}
-                <Dialog open={open} onClose={handleClose}>
-                    <DialogTitle>Subscribe</DialogTitle>
-                    <DialogContent>
-                        <DialogContentText>
-                            To subscribe to this website, please enter your email address here. We
-                            will send updates occasionally.
-                        </DialogContentText>
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Title"
-                            type="email"
-                            fullWidth
-                            variant="standard"
-                            value={updatedProduct.title}
-                            onChange={(e) => {
-                                setUpdatedProduct({...updatedProduct, title: e.target.value})
-                            }}
-                        />
-                        <TextField
-                            autoFocus
-                            margin="dense"
-                            id="name"
-                            label="Pric"
-                            type="number"
-                            fullWidth
-                            variant="standard"
-                            value={updatedProduct.pric}
-                            onChange={(e) => {
-                                setUpdatedProduct({...updatedProduct, pric: e.target.value})
-                            }}
-                        />
-                    </DialogContent>
-                    <DialogActions>
-                        <Button onClick={handleClose}>Cancel</Button>
-                        <Button onClick={handleDone}>Done</Button>
-                    </DialogActions>
-                </Dialog>
-                {/*---Dialog*/}
-                <Card sx={{minWidth: 300}} style={{margin: "10px"}}>
-                    <CardContent style={{background: "gray"}}>
-                        <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
-                            {value.title}
-                        </Typography>
+    return (
+        <>
+            {/*Dialog*/}
+            <Dialog open={open} onClose={handleClose}>
+                <DialogTitle>Subscribe</DialogTitle>
+                <DialogContent>
+                    <DialogContentText>
+                        To subscribe to this website, please enter your email address here. We
+                        will send updates occasionally.
+                    </DialogContentText>
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Title"
+                        type="email"
+                        fullWidth
+                        variant="standard"
+                        value={updatedProduct.title}
+                        onChange={(e) => {
+                            setUpdatedProduct({...updatedProduct, title: e.target.value})
+                        }}
+                    />
+                    <TextField
+                        autoFocus
+                        margin="dense"
+                        id="name"
+                        label="Pric"
+                        type="number"
+                        fullWidth
+                        variant="standard"
+                        value={updatedProduct.pric}
+                        onChange={(e) => {
+                            setUpdatedProduct({...updatedProduct, pric: e.target.value})
+                        }}
+                    />
+                </DialogContent>
+                <DialogActions>
+                    <Button onClick={handleClose}>Cancel</Button>
+                    <Button onClick={handleDone}>Done</Button>
+                </DialogActions>
+            </Dialog>
+            {/*---Dialog*/}
+            <Card sx={{minWidth: 300}} style={{margin: "10px"}}>
+                <CardContent style={{background: "gray"}}>
+                    <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
+                        {value.title}
+                    </Typography>
 
-                        <Typography style={{fontSize: "20px", fontWeight: "bolder",color:"white"}}>
+                    <Typography style={{fontSize: "20px", fontWeight: "bolder", color: "white"}}>
 
-                            {value.pric + "₽"}
-                        </Typography>
-                        <Typography style={{fontSize: "15px",color:"brown"}}>
-                            {value.moment}
+                        {value.pric + "₽"}
+                    </Typography>
+                    <Typography style={{fontSize: "15px", color: "brown"}}>
+                        {value.moment}
 
-                        </Typography>
-                    </CardContent>
-                    <CardActions style={{display: "flex", justifyContent: "space-between"}}>
-                        <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>
-                        <Button style={{color: product.cash ? "red" : "black"}} onClick={HandelCashClick}
-                                size="small"><MonetizationOnIcon/></Button>
-                        <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>
+                    </Typography>
+                </CardContent>
+                <CardActions style={{display: "flex", justifyContent: "space-between"}}>
+                    <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>
+                    <Button style={{background: value.cash ? "gold" : "white",color:value.cash ? "black" : "red"}} onClick={HandelCashClick}
+                            size="small"><MonetizationOnIcon/></Button>
+                    <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>
 
-                    </CardActions>
-                </Card>
-            </>
+                </CardActions>
+            </Card>
+        </>
 
-        );
-    }
+    );
+}

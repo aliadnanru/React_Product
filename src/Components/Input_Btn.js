@@ -1,4 +1,4 @@
-import { useContext,useState} from "react";
+import {useContext, useState} from "react";
 import {v4 as uuidv4} from 'uuid';
 import {InputeContext} from "../ProductContext/InputeContext";
 import {ProductContext} from "../ProductContext/ProductContext";
@@ -14,11 +14,12 @@ import DialogContent from "@mui/material/DialogContent";
 import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
+
 export default function Input_Btn() {
     const {product, setproduct} = useContext(ProductContext)
-   const {inpute, setinpute}=useContext(InputeContext)
+    const {inpute, setinpute} = useContext(InputeContext)
 
-    const [open, setOpen] =useState(false);
+    const [open, setOpen] = useState(false);
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -27,26 +28,26 @@ export default function Input_Btn() {
     const handleClose = () => {
         setOpen(false);
     };
+
     // HandelClickAdd
 
     function HandelClickAdd() {
-        if (inpute.inputePric && inpute.inputeTitle !== ""){
+        if (inpute.inputePric && inpute.inputeTitle !== "") {
             const newProduct = {
                 id: uuidv4(),
                 title: inpute.inputeTitle,
                 pric: inpute.inputePric,
-                cash:false,
-                moment:moment().format('h:mm')
+                cash: false,
+                moment: moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];
-            localStorage.setItem("product",JSON.stringify(updatedProduct))
+            localStorage.setItem("product", JSON.stringify(updatedProduct))
             setproduct(updatedProduct)
-        }else {
+        } else {
             alert('الادخال فارغ')
 
 
         }
-
 
 
         setinpute({
@@ -57,16 +58,17 @@ export default function Input_Btn() {
 
     // HandelClickAdd ---
     //HandelDelletAll
-    function HandelDelletAll(){
-        const DelletAll = product.filter((t)=>{
+    function HandelDelletAll() {
+        const DelletAll = product.filter((t) => {
             return !t
         })
-        localStorage.setItem("product",JSON.stringify(DelletAll))
+        localStorage.setItem("product", JSON.stringify(DelletAll))
 
         setproduct(DelletAll)
         setOpen(false);
 
     }
+
     //---HandelDelletAll
 
     return (
@@ -89,40 +91,48 @@ export default function Input_Btn() {
                 </DialogContent>
                 <DialogActions>
                     <Button onClick={HandelDelletAll}>Delete all</Button>
-                    <Button onClick={handleClose} >
+                    <Button onClick={handleClose}>
                         Cancel
                     </Button>
                 </DialogActions>
             </Dialog>
             {/* --- Dialog*/}
-            <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column",margin:"5px"}}>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                flexDirection: "column",
+                margin: "5px"
+            }}>
                 <label>The Product: </label>
-                <input style={{fontWeight:"bold" ,margin:"5px"}} value={inpute.inputeTitle} onChange={(e) => {
+                <input style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
                     setinpute({...inpute, inputeTitle: e.target.value})
                 }}/>
                 <label> pric:</label>
-                <input style={{fontWeight:"bold",margin:"5px"}} type={"number"} value={inpute.inputePric} onChange={(e) => {
-                    setinpute({...inpute, inputePric: e.target.value})
-                }}/>
-                <div style={{display:"flex",
-                    justifyContent:"space-between",
-                    alignItems:"center"
+                <input style={{fontWeight: "bold", margin: "5px"}} type={"number"} value={inpute.inputePric}
+                       onChange={(e) => {
+                           setinpute({...inpute, inputePric: e.target.value})
+                       }}/>
+                <div style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center"
                 }}>
 
-                   <WhatsappSendData/>
+                    <WhatsappSendData/>
                     <button onClick={HandelClickAdd} style={{
                         padding: "10px",
                         margin: "5px",
                         width: "70px",
-                        height:"70px",
+                        height: "70px",
                         cursor: "pointer",
-                        borderRadius:"100px",
-                        display:"flex",
-                        justifyContent:"center",
-                        textAlign:"center",
-                        alignItems:"center"
+                        borderRadius: "100px",
+                        display: "flex",
+                        justifyContent: "center",
+                        textAlign: "center",
+                        alignItems: "center"
 
-                    }}><ControlPointIcon style={{fontSize:"40px"}}/>
+                    }}><ControlPointIcon style={{fontSize: "40px"}}/>
 
                     </button>
                     <DeleteForeverIcon onClick={handleClickOpen} style={{
@@ -133,7 +143,7 @@ export default function Input_Btn() {
                         background: "red",
                         fontWeight: "bold",
                         borderRadius: "2000px",
-                        cursor:"pointer"
+                        cursor: "pointer"
                     }}/>
                 </div>
 
