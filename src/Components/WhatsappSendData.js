@@ -12,7 +12,7 @@ export default function WhatsappSendData() {
 
         // تحويل بيانات product إلى سلسلة نصية
         const productText = product.map((item) => {
-            return `✅${item.title}=>${item.pric}₽ | ${item.moment}` ;
+            return `✅${item.title}:${item.pric}₽|${item.moment}`;
         }).join('\n');
         const total = product.reduce((acc, p) => Number(acc) + Number(p.pric),0)
 
