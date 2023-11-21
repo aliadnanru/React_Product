@@ -42,8 +42,8 @@ export default function Input_Btn() {
             localStorage.setItem("product",JSON.stringify(updatedProduct))
             setproduct(updatedProduct)
         }else {
-            alert('الادخال فارغ33')
-            alert('الادخال فارغ33')
+            alert('الادخال فارغ')
+
 
         }
 
