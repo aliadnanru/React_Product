@@ -70,15 +70,15 @@ export default function CardContext({value}) {
     //     });
     // };
 
-//HandelCashClick
-//     function HandelCashClick() {
-//         const Data_Up =product.map((Cash)=>{
-//             if(Cash.id===value.id){
-//                 Cash.cash=!Cash.cash
-//             }
-//         })
-//         setproduct(Data_Up)
-//     }
+
+    function HandelCashClick() {
+        const Data_Up =product.map((Cash)=>{
+            if(Cash.id===value.id){
+                Cash.cash=!Cash.cash
+            }
+        })
+        setproduct(Data_Up)
+    }
 
         return (
             <>
@@ -140,8 +140,8 @@ export default function CardContext({value}) {
                     </CardContent>
                     <CardActions style={{display: "flex", justifyContent: "space-between"}}>
                         <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>
-                        {/*<Button style={{color: product.cash ? "red" : "black"}} onClick={HandelCashClick}*/}
-                        {/*        size="small"><MonetizationOnIcon/></Button>*/}
+                        <Button style={{color: product.cash ? "red" : "black"}} onClick={HandelCashClick}
+                                size="small"><MonetizationOnIcon/></Button>
                         <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>
 
                     </CardActions>

@@ -36,7 +36,7 @@ export default function Input_Btn() {
                 title: inpute.inputeTitle,
                 pric: inpute.inputePric,
                 cash:false,
-                moment:moment().format('LT')
+                moment:moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];
             localStorage.setItem("product",JSON.stringify(updatedProduct))
