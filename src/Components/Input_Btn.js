@@ -43,6 +43,8 @@ export default function Input_Btn() {
             setproduct(updatedProduct)
         }else {
             alert('الادخال فارغ33')
+            alert('الادخال فارغ33')
+
         }
 
 
