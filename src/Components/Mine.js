@@ -34,7 +34,7 @@ export default function Mine() {
             {/*    POS*/}
             {/*</Typography>*/}
             <Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>
-                {`Totol: ${total} `}
+                {`Totol: ${total}₽ `}
             </Typography>
             {/* --Title*/}
             <Card>
