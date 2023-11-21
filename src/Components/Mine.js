@@ -11,16 +11,21 @@ import WhatsappSendData from "./WhatsappSendData";
 export default function Mine() {
     const {product, setproduct} = useContext(ProductContext)
     const ReturnProduct = product.map((t) => {
-        return <CardContext key={t.id} value={t} />;
+        return <CardContext key={t.id} value={t}/>;
     });
 
-    const total = product.reduce((acc, p) => Number(acc) + Number(p.pric),0)
+    const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
     useEffect(() => {
         const storageProduct = JSON.parse(localStorage.getItem("product")) ?? [];
         setproduct(storageProduct)
     }, []);
-//wha
 
+    //totalCash
+    const newCash = product.filter((t) => {
+        return t.cash
+    })
+    const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+    console.log(totalCash)
     return (
 
         <Container style={{
@@ -34,7 +39,7 @@ export default function Mine() {
             {/*    POS*/}
             {/*</Typography>*/}
             <Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>
-                {`Totol: ${total}₽ `}
+                {`Totol: ${total}₽ | 💰:${totalCash}₽ `}
             </Typography>
             {/* --Title*/}
             <Card>
