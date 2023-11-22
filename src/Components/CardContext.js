@@ -87,17 +87,16 @@ export default function CardContext({value}) {
         <>
             {/*Dialog*/}
             <Dialog open={open} onClose={handleClose}>
-                <DialogTitle>Subscribe</DialogTitle>
+                <DialogTitle>Изменить данные</DialogTitle>
                 <DialogContent>
                     <DialogContentText>
-                        To subscribe to this website, please enter your email address here. We
-                        will send updates occasionally.
+                        Изменить название и цену
                     </DialogContentText>
                     <TextField
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Title"
+                        label="товара"
                         type="email"
                         fullWidth
                         variant="standard"
@@ -110,7 +109,7 @@ export default function CardContext({value}) {
                         autoFocus
                         margin="dense"
                         id="name"
-                        label="Pric"
+                        label="Цена"
                         type="number"
                         fullWidth
                         variant="standard"
@@ -121,8 +120,8 @@ export default function CardContext({value}) {
                     />
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleDone}>Done</Button>
+                    <Button onClick={handleClose}>Отмена</Button>
+                    <Button onClick={handleDone}>Сделанный</Button>
                 </DialogActions>
             </Dialog>
             {/*---Dialog*/}
