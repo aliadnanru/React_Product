@@ -39,7 +39,7 @@ export default function Mine() {
             {/*    POS*/}
             {/*</Typography>*/}
             <Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>
-                {`Totol: ${total}₽ | 💰:${totalCash}₽ `}
+                {`Тотол: ${total}₽ | 💰:${totalCash}₽ `}
             </Typography>
             {/* --Title*/}
             <Card>
@@ -49,7 +49,7 @@ export default function Mine() {
                     alignItems: "center",
                     flexDirection: "column",
                     overflow: "scroll",
-                    maxHeight: "390px",
+                    maxHeight: "370px",
                     maxWidth: "330px",
 
 

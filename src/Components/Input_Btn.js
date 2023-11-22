@@ -5,6 +5,8 @@ import {ProductContext} from "../ProductContext/ProductContext";
 // icons
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
+//alert
+import MySnackbar from "./MySnackbar"
 
 import WhatsappSendData from "./WhatsappSendData";
 import moment from "moment/moment";
@@ -14,6 +16,7 @@ import DialogContent from "@mui/material/DialogContent";
 import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
+import {Alert} from "@mui/material";
 
 export default function Input_Btn() {
     const {product, setproduct} = useContext(ProductContext)
@@ -26,6 +29,20 @@ export default function Input_Btn() {
     };
 
     const handleClose = () => {
+        setOpen(false);
+    };
+//alert
+    const [open1, setOpen1] = useState(false);
+
+    const handleClick = () => {
+        setOpen(true);
+    };
+
+    const handleClose1 = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+
         setOpen(false);
     };
 
@@ -42,6 +59,7 @@ export default function Input_Btn() {
             }
             const updatedProduct = [...product, newProduct];
             localStorage.setItem("product", JSON.stringify(updatedProduct))
+
             setproduct(updatedProduct)
         } else {
             alert('الادخال فارغ')
@@ -73,6 +91,8 @@ export default function Input_Btn() {
 
     return (
         <>
+            <MySnackbar/>
+
             {/* Dialog*/}
             <Dialog
                 open={open}
@@ -81,19 +101,19 @@ export default function Input_Btn() {
                 aria-describedby="alert-dialog-description"
             >
                 <DialogTitle id="alert-dialog-title">
-                    {"Use Google's location service?"}
+                    {"Удалить данные?"}
                 </DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        Let Google help apps determine location. This means sending anonymous
-                        location data to Google, even when no apps are running.
+                        Внимание!: все данные будут удалены.
                     </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={HandelDelletAll}>Delete all</Button>
+
                     <Button onClick={handleClose}>
-                        Cancel
+                        Отмена
                     </Button>
+                    <Button onClick={HandelDelletAll}>Удалить все</Button>
                 </DialogActions>
             </Dialog>
             {/* --- Dialog*/}
@@ -104,11 +124,11 @@ export default function Input_Btn() {
                 flexDirection: "column",
                 margin: "5px"
             }}>
-                <label>The Product: </label>
+                <label>товара: </label>
                 <input style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
                     setinpute({...inpute, inputeTitle: e.target.value})
                 }}/>
-                <label> pric:</label>
+                <label> Цена:</label>
                 <input style={{fontWeight: "bold", margin: "5px"}} type={"number"} value={inpute.inputePric}
                        onChange={(e) => {
                            setinpute({...inpute, inputePric: e.target.value})
@@ -146,6 +166,9 @@ export default function Input_Btn() {
                         cursor: "pointer"
                     }}/>
                 </div>
+
+            </div>
+            <div>
 
             </div>
         </>
