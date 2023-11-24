@@ -143,8 +143,8 @@ export default function Input_Btn() {
                     <button onClick={HandelClickAdd} style={{
                         padding: "10px",
                         margin: "5px",
-                        width: "90px",
-                        height: "90px",
+                        width: "70px",
+                        height: "70px",
                         cursor: "pointer",
                         borderRadius: "100px",
                         display: "flex",
@@ -153,7 +153,7 @@ export default function Input_Btn() {
                         alignItems: "center",
 
 
-                    }}><ControlPointIcon style={{fontSize: "80px"}}/>
+                    }}><ControlPointIcon style={{fontSize: "50px"}}/>
 
                     </button>
                     <DeleteForeverIcon onClick={handleClickOpen} style={{

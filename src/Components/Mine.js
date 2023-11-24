@@ -49,7 +49,7 @@ export default function Mine() {
                     alignItems: "center",
                     flexDirection: "column",
                     overflow: "scroll",
-                    maxHeight: "390px",
+                    maxHeight: "330px",
                     maxWidth: "380px",
 
 
