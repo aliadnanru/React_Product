@@ -50,7 +50,7 @@ export default function Mine() {
                     flexDirection: "column",
                     overflow: "scroll",
                     maxHeight: "390px",
-                    maxWidth: "330px",
+                    maxWidth: "380px",
 
 
                 }}>
