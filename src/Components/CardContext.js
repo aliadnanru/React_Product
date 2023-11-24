@@ -125,7 +125,7 @@ export default function CardContext({value}) {
                 </DialogActions>
             </Dialog>
             {/*---Dialog*/}
-            <Card sx={{minWidth: 300}} style={{margin: "10px"}}>
+            <Card sx={{minWidth: 300}} style={{margin: "7px"}}>
                 <CardContent style={{background: "gray"}}>
                     <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
                         {value.title}
