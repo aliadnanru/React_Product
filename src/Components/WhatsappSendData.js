@@ -15,10 +15,11 @@ export default function WhatsappSendData() {
     const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
     const handleWhatsAppClick = () => {
         const phone = +79625600668;
+//index of elmimt
 
         // تحويل بيانات product إلى سلسلة نصية
-        const productText = product.map((item) => {
-            return `✅${item.title}:${item.pric}₽ ${item.cash ? "💰" : ""}|${item.moment}`;
+        const productText = product.map((item, index) => {
+            return `✅${index + 1} :${item.title}:${item.pric}₽ ${item.cash ? "💰" : ""}|${item.moment}`;
         }).join('\n');
         const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
 

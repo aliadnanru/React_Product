@@ -18,7 +18,7 @@ import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 
-export default function CardContext({value}) {
+export default function CardContext({value,index,arr}) {
     const [Cash,setCash]=useState(false)
     const [open, setOpen] = React.useState(false);
     const {product, setproduct} = useContext(ProductContext)
@@ -78,7 +78,8 @@ export default function CardContext({value}) {
             }
             return t
         })
-        console.log(CashClick)
+        console.log(arr)
+
         localStorage.setItem("product", JSON.stringify(CashClick))
         setproduct(CashClick)
     }
@@ -127,6 +128,9 @@ export default function CardContext({value}) {
             {/*---Dialog*/}
             <Card sx={{minWidth: 300}} style={{margin: "7px"}}>
                 <CardContent style={{background: "dimgray"}}>
+                    <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
+                        {index+1}
+                    </Typography>
                     <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
                         {value.title}
                     </Typography>

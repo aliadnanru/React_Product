@@ -10,8 +10,8 @@ import WhatsappSendData from "./WhatsappSendData";
 
 export default function Mine() {
     const {product, setproduct} = useContext(ProductContext)
-    const ReturnProduct = product.map((t) => {
-        return <CardContext key={t.id} value={t}/>;
+    const ReturnProduct = product.map((t,index,arr) => {
+        return <CardContext key={t.id} value={t} index={index} arr={arr}/>;
     });
 
     const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
@@ -25,7 +25,7 @@ export default function Mine() {
         return t.cash
     })
     const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
-    console.log(totalCash)
+
     return (
 
         <Container style={{
