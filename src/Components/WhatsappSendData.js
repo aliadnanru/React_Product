@@ -13,6 +13,11 @@ export default function WhatsappSendData() {
         return t.cash
     })
     const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+    //totalCard
+    const newCard = product.filter((t) => {
+        return t.card
+    })
+    const totleCard = newCard.reduce((acc , p)=> Number(acc) + Number(p.pric),0)
     const handleWhatsAppClick = () => {
         const phone = +79625600668;
 
@@ -23,7 +28,7 @@ export default function WhatsappSendData() {
         const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
 
         // إعداد رسالة تحتوي على بيانات الـ product
-        const message = ` 🔮Sales today:\n${productText}\n \n🔁 Total:≃${total}₽\n💰Totol Cash:${totalCash}₽\n📅Calendar: ${calendar}`;
+        const message = ` 🔮Sales today:\n${productText}\n \n🔁 Total:≃${total}₽\n💰Totol Cash:${totalCash}₽\n Перевод денег💳:${totleCard}₽\n📅Calendar: ${calendar}`;
 
         const url = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}`;
         console.log(moment().subtract(10, 'days').calendar()
