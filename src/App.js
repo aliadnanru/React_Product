@@ -30,7 +30,8 @@ function App() {
     const [inpute, setinpute] = useState(InitiaInpute)
     const [product, setproduct] = useState(InitialProduct)
     return (
-
+        <div className="App" style={{
+        }}>
             <div className="App-header">
 
                 <ProductContext.Provider value={{product, setproduct}}>
@@ -41,7 +42,7 @@ function App() {
                     </InputeContext.Provider>
 
                 </ProductContext.Provider>
-
+            </div>
 
 
         </div>
