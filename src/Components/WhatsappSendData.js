@@ -23,12 +23,12 @@ export default function WhatsappSendData() {
 
         // تحويل بيانات product إلى سلسلة نصية
         const productText = product.map((item, index) => {
-            return `✅${index + 1}- ${item.title}:${item.pric}₽ ${item.cash ? "💰" : ""}|${item.moment}`;
+            return `✅${index + 1}- ${item.title}:${item.pric}₽ ${item.cash ? "💰" : ""} ${item.card ? "💳" : ""}|${item.moment}`;
         }).join('\n');
         const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
 
         // إعداد رسالة تحتوي على بيانات الـ product
-        const message = ` 🔮Sales today:\n${productText}\n \n🔁 Total:≃${total}₽\n💰Totol Cash:${totalCash}₽\n Перевод денег💳:${totleCard}₽\n📅Calendar: ${calendar}`;
+        const message = ` 🔮Sales today:\n${productText}\n \n🔁 Total:≃${total}₽\n💰Totol Cash:${totalCash}₽\n 💳Перевод денег:${totleCard}₽\n📅Calendar: ${calendar}`;
 
         const url = `whatsapp://send?phone=${phone}&text=${encodeURIComponent(message)}`;
         console.log(moment().subtract(10, 'days').calendar()
