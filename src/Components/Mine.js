@@ -37,7 +37,8 @@ export default function Mine() {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            flexDirection: "column"
+            flexDirection: "column",
+
         }}>
             {/*Title*/}
             {/*<Typography style={{margin: "10px",color:"white",fontWeight:"bolder"}}>*/}

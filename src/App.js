@@ -31,7 +31,6 @@ function App() {
     const [product, setproduct] = useState(InitialProduct)
     return (
         <div className="App" style={{
-
         }}>
             <div className="App-header">
 

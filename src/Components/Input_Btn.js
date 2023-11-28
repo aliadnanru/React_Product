@@ -8,6 +8,7 @@ import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 //alert
 import MySnackbar from "./MySnackbar"
 
+
 import WhatsappSendData from "./WhatsappSendData";
 import moment from "moment/moment";
 import Dialog from "@mui/material/Dialog";
@@ -17,6 +18,8 @@ import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
 import {Alert} from "@mui/material";
+import {Howl} from 'howler';
+
 
 export default function Input_Btn() {
     const {product, setproduct} = useContext(ProductContext)
@@ -46,6 +49,7 @@ export default function Input_Btn() {
         setOpen(false);
     };
 
+
     // HandelClickAdd
 
     function HandelClickAdd() {
@@ -55,16 +59,17 @@ export default function Input_Btn() {
                 title: inpute.inputeTitle,
                 pric: inpute.inputePric,
                 cash: false,
-                card:false,
+                card: false,
                 moment: moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];
+
             localStorage.setItem("product", JSON.stringify(updatedProduct))
 
             setproduct(updatedProduct)
         } else {
-            alert('الادخال فارغ')
 
+            alert("Null")
 
         }
 
@@ -141,7 +146,11 @@ export default function Input_Btn() {
                 }}>
 
                     <WhatsappSendData/>
-                    <button onClick={HandelClickAdd} style={{
+                    <button onClick={() => {
+                        {
+                            HandelClickAdd()
+                        }
+                    }} style={{
                         padding: "10px",
                         margin: "5px",
                         width: "70px",
