@@ -14,6 +14,7 @@ const InitialProduct = [{
     title: "",
     pric: null,
     cash:false,
+    card:false,
     moment:null
 
 }]

@@ -55,6 +55,7 @@ export default function Input_Btn() {
                 title: inpute.inputeTitle,
                 pric: inpute.inputePric,
                 cash: false,
+                card:false,
                 moment: moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];

@@ -17,12 +17,11 @@ import Dialog from "@mui/material/Dialog";
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
+import AddCardIcon from '@mui/icons-material/AddCard';
 
-export default function CardContext({value,index,arr}) {
-    const [Cash,setCash]=useState(false)
+export default function CardContext({value, index, arr}) {
     const [open, setOpen] = React.useState(false);
     const {product, setproduct} = useContext(ProductContext)
-    // const {inpute, setinpute} = useContext(InputeContext)
     const [updatedProduct, setUpdatedProduct] = useState({
         title: value.title,
         pric: value.pric,
@@ -62,15 +61,6 @@ export default function CardContext({value,index,arr}) {
         setproduct(DeleteProduct)
     }
 
-    // const HandelEditClick = () => {
-    //     // تحديث حالة الإدخال لتعكس القيم الحالية للكارت
-    //     setinpute({
-    //         inputeTitle: value.title,
-    //         inputePrice: value.pric,
-    //     });
-    // };
-
-
     function HandelCashClick() {
         const CashClick = product.map((t) => {
             if (t.id === value.id) {
@@ -82,6 +72,19 @@ export default function CardContext({value,index,arr}) {
 
         localStorage.setItem("product", JSON.stringify(CashClick))
         setproduct(CashClick)
+    }
+
+    function HandelCardClick() {
+        const CardClick = product.map((t) => {
+            if (t.id === value.id) {
+                t.card = !t.card
+            }
+            return t
+
+        })
+        console.log(CardClick)
+        localStorage.setItem("product", JSON.stringify(CardClick))
+        setproduct(CardClick)
     }
 
     return (
@@ -129,7 +132,7 @@ export default function CardContext({value,index,arr}) {
             <Card sx={{minWidth: 300}} style={{margin: "7px"}}>
                 <CardContent style={{background: "dimgray"}}>
                     <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
-                        {index+1}
+                        {index + 1}
                     </Typography>
                     <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
                         {value.title}
@@ -146,8 +149,12 @@ export default function CardContext({value,index,arr}) {
                 </CardContent>
                 <CardActions style={{display: "flex", justifyContent: "space-between"}}>
                     <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>
-                    <Button style={{background: value.cash ? "gold" : "white",color:value.cash ? "black" : "red"}} onClick={HandelCashClick}
+                    <Button style={{background: value.cash ? "gold" : "white", color: value.cash ? "black" : "red"}}
+                            onClick={HandelCashClick}
                             size="small"><MonetizationOnIcon/></Button>
+                    <Button style={{background: value.card ? "green" : "white", color: value.card ? "white" : "green"}}
+                            onClick={HandelCardClick}
+                            size="small"><AddCardIcon/></Button>
                     <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>
 
                 </CardActions>
