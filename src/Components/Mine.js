@@ -6,6 +6,9 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import WhatsappSendData from "./WhatsappSendData";
+import BasicSwitches from "./Switch";
+import SwipeableEdgeDrawer from "./Swipeable edge";
+//BasicSwitches
 
 
 export default function Mine() {
@@ -47,6 +50,7 @@ export default function Mine() {
             <Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>
                 {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}
             </Typography>
+            <BasicSwitches/>
             {/* --Title*/}
             <Card>
                 <div style={{

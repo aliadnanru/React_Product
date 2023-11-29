@@ -6,6 +6,7 @@ import {ProductContext} from "./ProductContext/ProductContext";
 import Input_Btn from "./Components/Input_Btn"
 import {InputeContext} from "./ProductContext/InputeContext"
 import moment from 'moment';
+import SwipeableEdgeDrawer from "./Components/Swipeable edge";
 
 // InitialProduct
 
@@ -38,6 +39,8 @@ function App() {
 
                     <InputeContext.Provider value={{inpute, setinpute}}>
                         <Mine/>
+                        <SwipeableEdgeDrawer/>
+
                         <Input_Btn/>
                     </InputeContext.Provider>
 
