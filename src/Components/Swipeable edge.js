@@ -1,9 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
-import { Global } from '@emotion/react';
-import { styled } from '@mui/material/styles';
+import {Global} from '@emotion/react';
+import {styled} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import { grey } from '@mui/material/colors';
+import {grey} from '@mui/material/colors';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
@@ -14,17 +14,17 @@ import {ProductContext} from "../ProductContext/ProductContext";
 
 const drawerBleeding = 56;
 
-const Root = styled('div')(({ theme }) => ({
+const Root = styled('div')(({theme}) => ({
     height: '100%',
     backgroundColor:
         theme.palette.mode === 'light' ? grey[100] : theme.palette.background.default,
 }));
 
-const StyledBox = styled(Box)(({ theme }) => ({
+const StyledBox = styled(Box)(({theme}) => ({
     backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[800],
 }));
 
-const Puller = styled(Box)(({ theme }) => ({
+const Puller = styled(Box)(({theme}) => ({
     width: 30,
     height: 6,
     backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
@@ -35,11 +35,13 @@ const Puller = styled(Box)(({ theme }) => ({
 }));
 
 function SwipeableEdgeDrawer(props) {
-    const { window } = props;
+    const {window} = props;
     const [open, setOpen] = React.useState(false);
     const {product, setproduct} = useContext(ProductContext)
     const ReturnProduct = product.map((t, index, arr) => {
-        return <div key={t.id}> <h1>{t.title}</h1></div>;
+        return <div key={t.id}>
+            <h5>{t.title}:{t.pric}p </h5>
+        </div>;
     });
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
@@ -50,7 +52,7 @@ function SwipeableEdgeDrawer(props) {
 
     return (
         <Root>
-            <CssBaseline />
+            <CssBaseline/>
             <Global
                 styles={{
                     '.MuiDrawer-root > .MuiPaper-root': {
@@ -59,7 +61,7 @@ function SwipeableEdgeDrawer(props) {
                     },
                 }}
             />
-            <Box sx={{ textAlign: 'center', pt: 1 }}>
+            <Box sx={{textAlign: 'center', pt: 1}}>
                 <Button onClick={toggleDrawer(true)}>Open</Button>
             </Box>
             <SwipeableDrawer
@@ -85,10 +87,16 @@ function SwipeableEdgeDrawer(props) {
                         left: 0,
                     }}
                 >
-                    <Puller />
-                    <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+                    <Puller/>
+                    <Typography sx={{p: 2, color: 'text.secondary'}}>51 results</Typography>
                 </StyledBox>
-                <div style={{overflow:"scroll",display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+                <div style={{
+                    overflow: "scroll",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    flexDirection: "column"
+                }}>
                     {ReturnProduct}
                 </div>
 

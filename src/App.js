@@ -33,14 +33,15 @@ function App() {
     return (
         <div className="App" style={{
         }}>
+
             <div className="App-header">
 
                 <ProductContext.Provider value={{product, setproduct}}>
 
                     <InputeContext.Provider value={{inpute, setinpute}}>
                         <Mine/>
-                        <SwipeableEdgeDrawer/>
 
+                        <SwipeableEdgeDrawer/>
                         <Input_Btn/>
                     </InputeContext.Provider>
 
