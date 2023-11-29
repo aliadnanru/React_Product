@@ -49,6 +49,16 @@ function SwipeableEdgeDrawer(props) {
 
     // This is used only for the example
     const container = window !== undefined ? () => window().document.body : undefined;
+    const newCash = product.filter((t) => {
+        return t.cash
+    })
+    const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+//totalCard
+    const newCard = product.filter((t) => {
+        return t.card
+    })
+    const totleCard = newCard.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+    const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
 
     return (
         <Root>
@@ -97,7 +107,9 @@ function SwipeableEdgeDrawer(props) {
                     alignItems: "center",
                     flexDirection: "column"
                 }}>
-                    {ReturnProduct}
+                    <Typography style={{margin: "10px", color: "black", fontWeight: "bold"}}>
+                        {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}
+                    </Typography>
                 </div>
 
             </SwipeableDrawer>

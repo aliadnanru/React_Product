@@ -131,7 +131,7 @@ export default function Input_Btn() {
                 margin: "5px"
             }}>
                 <label>товара: </label>
-                <input style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
+                <input style={{fontWeight: "bold", margin: "5px"}} type={"search"} value={inpute.inputeTitle} onChange={(e) => {
                     setinpute({...inpute, inputeTitle: e.target.value})
                 }}/>
                 <label> Цена:</label>

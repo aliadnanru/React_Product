@@ -17,22 +17,14 @@ export default function Mine() {
         return <CardContext key={t.id} value={t} index={index} arr={arr}/>;
     });
 
-    const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+    // const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
     useEffect(() => {
         const storageProduct = JSON.parse(localStorage.getItem("product")) ?? [];
         setproduct(storageProduct)
     }, []);
 
     //totalCash
-    const newCash = product.filter((t) => {
-        return t.cash
-    })
-    const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
-//totalCard
-    const newCard = product.filter((t) => {
-        return t.card
-    })
-    const totleCard = newCard.reduce((acc , p)=> Number(acc) + Number(p.pric),0)
+
 
     return (
 
@@ -47,10 +39,9 @@ export default function Mine() {
             {/*<Typography style={{margin: "10px",color:"white",fontWeight:"bolder"}}>*/}
             {/*    POS*/}
             {/*</Typography>*/}
-            <Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>
-                {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}
-            </Typography>
-            <BasicSwitches/>
+            {/*<Typography style={{margin: "10px", color: "white", fontWeight: "bold"}}>*/}
+            {/*    {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}*/}
+            {/*</Typography>*/}
             {/* --Title*/}
             <Card>
                 <div style={{
