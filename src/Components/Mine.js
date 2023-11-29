@@ -30,9 +30,10 @@ export default function Mine() {
 
         <Container style={{
             display: "flex",
-            justifyContent: "space-between",
+            justifyContent: "end",
             alignItems: "center",
             flexDirection: "column",
+            marginTop:"25px"
 
         }}>
             {/*Title*/}
@@ -50,7 +51,7 @@ export default function Mine() {
                     alignItems: "center",
                     flexDirection: "column",
                     overflow: "scroll",
-                    maxHeight: "330px",
+                    maxHeight: "390px",
                     maxWidth: "380px",
 
 
