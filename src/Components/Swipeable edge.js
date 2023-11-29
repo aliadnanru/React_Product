@@ -9,6 +9,8 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import {useContext} from "react";
+import {ProductContext} from "../ProductContext/ProductContext";
 
 const drawerBleeding = 56;
 
@@ -35,7 +37,10 @@ const Puller = styled(Box)(({ theme }) => ({
 function SwipeableEdgeDrawer(props) {
     const { window } = props;
     const [open, setOpen] = React.useState(false);
-
+    const {product, setproduct} = useContext(ProductContext)
+    const ReturnProduct = product.map((t, index, arr) => {
+        return <div key={t.id}> <h1>{t.title}</h1></div>;
+    });
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -83,16 +88,10 @@ function SwipeableEdgeDrawer(props) {
                     <Puller />
                     <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
                 </StyledBox>
-                <StyledBox
-                    sx={{
-                        px: 2,
-                        pb: 2,
-                        height: '100%',
-                        overflow: 'auto',
-                    }}
-                >
-                    <Skeleton variant="rectangular" height="100%" />
-                </StyledBox>
+                <div style={{overflow:"scroll",display:"flex",justifyContent:"center",alignItems:"center",flexDirection:"column"}}>
+                    {ReturnProduct}
+                </div>
+
             </SwipeableDrawer>
         </Root>
     );
