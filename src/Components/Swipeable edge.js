@@ -36,7 +36,7 @@ const Puller = styled(Box)(({theme}) => ({
 
 function SwipeableEdgeDrawer(props) {
     const {window} = props;
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = React.useState(true);
     const {product, setproduct} = useContext(ProductContext)
     const ReturnProduct = product.map((t, index, arr) => {
         return <div key={t.id}>
@@ -71,9 +71,7 @@ function SwipeableEdgeDrawer(props) {
                     },
                 }}
             />
-            <Box sx={{textAlign: 'center', pt: 1}}>
-                <Button onClick={toggleDrawer(true)}>Open</Button>
-            </Box>
+
             <SwipeableDrawer
                 container={container}
                 anchor="bottom"
