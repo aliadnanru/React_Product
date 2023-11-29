@@ -145,8 +145,8 @@ export default function Input_Btn() {
                     justifyContent: "space-between",
                     alignItems: "center"
                 }}>
-                    <BasicSpeedDial/>
-                    {/*<WhatsappSendData/>*/}
+
+                    <WhatsappSendData/>
                     <button onClick={() => {
                         {
                             HandelClickAdd()
