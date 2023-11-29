@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import WhatsappSendData from "./WhatsappSendData";
 import BasicSwitches from "./Switch";
 import SwipeableEdgeDrawer from "./Swipeable edge";
+import BasicSpeedDial from "./SpeedDial";
 //BasicSwitches
 
 
@@ -47,7 +48,7 @@ export default function Mine() {
             <Card>
                 <div style={{
                     display: "flex",
-                    justifyContent: "stretch",
+                    justifyContent: "space-between",
                     alignItems: "center",
                     flexDirection: "column",
                     overflow: "scroll",
@@ -71,5 +72,6 @@ export default function Mine() {
 
 
         </Container>
+
     );
 }

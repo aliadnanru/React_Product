@@ -19,6 +19,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
 import {Alert} from "@mui/material";
 import {Howl} from 'howler';
+import BasicSpeedDial from "./SpeedDial";
 
 
 export default function Input_Btn() {
@@ -144,8 +145,8 @@ export default function Input_Btn() {
                     justifyContent: "space-between",
                     alignItems: "center"
                 }}>
-
-                    <WhatsappSendData/>
+                    <BasicSpeedDial/>
+                    {/*<WhatsappSendData/>*/}
                     <button onClick={() => {
                         {
                             HandelClickAdd()
