@@ -145,7 +145,6 @@ export default function Input_Btn() {
                     justifyContent: "space-between",
                     alignItems: "center"
                 }}>
-
                     <WhatsappSendData/>
                     <button onClick={() => {
                         {
