@@ -167,8 +167,8 @@ export default function Input_Btn() {
 
                     </button>
                     <DeleteForeverIcon onClick={handleClickOpen} style={{
-                        width: "30px",
-                        height: "30px",
+                        width: "45px",
+                        height: "45px",
                         padding: "10px",
                         color: "white",
                         background: "red",
