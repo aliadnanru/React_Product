@@ -163,16 +163,16 @@ export default function CardContext({value, index, arr}) {
                             sx={{ width: '100%' }}
                             style={{textAlign:"center"}}
                         >
-                            <Grid style={{fontWeight:"bold",borderRadius:"5px"}} xs={8}>
+                            <Grid style={{fontWeight:"bold"}} xs={10}>
                                 {value.title}
                             </Grid>
-                            <Grid  xs={4}>
+                            <Grid style={{fontWeight:"bold",fontSize:"17px"}}  xs={2}>
                                 {value.pric + "₽"}
                             </Grid>
-                            <Grid style={{display:"flex",alignItems:"center",justifyContent:"center"}} xs={6}>
+                            <Grid style={{fontWeight:"bold",display:"flex",alignItems:"center"}} xs={10}>
                                 <AccessTimeIcon/> {value.moment}
                             </Grid>
-                            <Grid xs={6}>
+                            <Grid xs={2}>
                                 ID:{index + 1}
                             </Grid>
                         </Grid>
