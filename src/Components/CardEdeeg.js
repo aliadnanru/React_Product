@@ -7,7 +7,7 @@ import CircularProgress from '@mui/joy/CircularProgress';
 import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
 
-export default function CardInvertedColors() {
+export default function CardInvertedColors({totalCash,total}) {
     return (
         <Card variant="solid" color="primary" invertedColors style={{margin:"5px"}}>
             <CardContent orientation="horizontal">
@@ -30,17 +30,17 @@ export default function CardInvertedColors() {
                 </CircularProgress>
                 <CardContent>
                     <Typography level="body-md">Gross profit</Typography>
-                    <Typography level="h2">$ 432.6M</Typography>
+                    <Typography level="h2">{totalCash}₽</Typography>
                 </CardContent>
             </CardContent>
-            <CardActions>
-                <Button variant="soft" size="sm">
-                    Add to Watchlist
-                </Button>
-                <Button variant="solid" size="sm">
-                    See breakdown
-                </Button>
-            </CardActions>
+            {/*<CardActions>*/}
+            {/*    <Button variant="soft" size="sm">*/}
+            {/*        Add to Watchlist*/}
+            {/*    </Button>*/}
+            {/*    <Button variant="solid" size="sm">*/}
+            {/*        See breakdown*/}
+            {/*    </Button>*/}
+            {/*</CardActions>*/}
         </Card>
     );
 }

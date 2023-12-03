@@ -109,9 +109,9 @@ function SwipeableEdgeDrawer(props) {
                     {/*    {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}*/}
                     {/*    <CardInvertedColors/>*/}
                     {/*</Typography>*/}
-                    <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px",width:"100px"}}>
-                        <CardInvertedColors />
-                        <CardInvertedColors/>
+                    <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px"}}>
+                        <CardInvertedColors totalCash={totalCash} total={total} />
+                        <CardInvertedColors totalCash={totalCash}/>
                     </div>
                 </div>
 
