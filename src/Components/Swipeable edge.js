@@ -13,6 +13,7 @@ import {useContext} from "react";
 import {ProductContext} from "../ProductContext/ProductContext"
 import TotalCash from "./TotalCash";
 import CardTotal from "./CardTotal"
+import TotalAll from "./TotalAll"
 const drawerBleeding = 50;
 
 const Root = styled('div')(({theme}) => ({
@@ -112,6 +113,7 @@ function SwipeableEdgeDrawer(props) {
                     {/*</Typography>*/}
                     <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px"}}>
                         {/*<CardInvertedColors totalCash={totalCash} total={total} />*/}
+                        <TotalAll total={total}/>
                         <TotalCash totalCash={totalCash}/>
                         <CardTotal totleCard={totleCard}/>
                     </div>
