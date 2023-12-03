@@ -14,6 +14,8 @@ import {ProductContext} from "../ProductContext/ProductContext"
 import TotalCash from "./TotalCash";
 import CardTotal from "./CardTotal"
 import TotalAll from "./TotalAll"
+import {BarChart} from '@mui/x-charts/BarChart';
+import {PieChart} from "@mui/x-charts";
 
 const drawerBleeding = 50;
 
@@ -65,7 +67,7 @@ function SwipeableEdgeDrawer(props) {
         return p.card
     })
     const TotalCardLength = LengthCard.length
-     const TotalCashLength = LengthCash.length
+    const TotalCashLength = LengthCash.length
 //totalCard
     const newCard = product.filter((t) => {
         return t.card
@@ -119,10 +121,6 @@ function SwipeableEdgeDrawer(props) {
                     alignItems: "center",
                     flexDirection: "column"
                 }}>
-                    {/*<Typography style={{margin: "10px", color: "black", fontWeight: "bold"}}>*/}
-                    {/*    {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}*/}
-                    {/*    <CardInvertedColors/>*/}
-                    {/*</Typography>*/}
                     <div style={{
                         display: "flex",
                         justifyContent: "center",
@@ -130,11 +128,27 @@ function SwipeableEdgeDrawer(props) {
                         alignItems: "center",
                         margin: "20px"
                     }}>
-                        {/*<CardInvertedColors totalCash={totalCash} total={total} />*/}
-
                         <TotalAll total={total} ProductLength={ProductLength}/>
-                        <TotalCash totalCash={totalCash} TotalCashLength={TotalCashLength} />
+                        <TotalCash totalCash={totalCash} TotalCashLength={TotalCashLength}/>
                         <CardTotal totleCard={totleCard} TotalCardLength={TotalCardLength}/>
+                    </div>
+                    <div>
+
+
+                        <PieChart
+                            series={[
+                                {
+                                    data: [
+                                        // {id: 0, value: ` ${product.length}`, label: 'series A'},
+                                        {id: 1, value: `${TotalCashLength}`, label: ' Cash B'},
+                                        {id: 2, value: `${TotalCardLength}`, label: 'Card C'},
+                                    ],
+                                },
+                            ]}
+                            width={400}
+                            height={200}
+                        />
+
                     </div>
                 </div>
 
