@@ -6,12 +6,37 @@ import CardActions from '@mui/joy/CardActions';
 import CircularProgress from '@mui/joy/CircularProgress';
 import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
+import {useEffect, useState} from "react";
 
-export default function CardInvertedColors({totalCash,total}) {
+export default function CardTotal({totleCard}) {
+    const [V, setV] = useState(null)
+    useEffect(()=>{
+        if (totleCard >= 100) {
+            setV(10)
+        }else if(totleCard >= 500){
+            setV(15)
+        }else if(totleCard >= 2000){
+            setV(20)
+        }else if(totleCard >= 4000){
+            setV(25)
+        }else if(totleCard >= 5000){
+            setV(30)
+        }else if(totleCard >= 7000){
+            setV(55)
+        }else if(totleCard >= 10000){
+            setV(55)
+        }else if(totleCard >= 15000){
+            setV(60)
+        }else if(totleCard >= 20000){
+            setV(90)
+        }else {
+            setV(0)
+        }
+    },[totleCard])
     return (
-        <Card variant="solid" color="primary" invertedColors style={{margin:"5px"}}>
+        <Card variant="solid" color="primary" invertedColors style={{margin: "5px"}}>
             <CardContent orientation="horizontal">
-                <CircularProgress size="lg" determinate value={20}>
+                <CircularProgress size="lg" determinate value={V}>
                     <SvgIcon>
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -29,8 +54,8 @@ export default function CardInvertedColors({totalCash,total}) {
                     </SvgIcon>
                 </CircularProgress>
                 <CardContent>
-                    <Typography level="body-md">Gross profit</Typography>
-                    <Typography level="h2">{totalCash}₽</Typography>
+                    <Typography level="body-md">Total Card</Typography>
+                    <Typography level="h2">{totleCard}₽</Typography>
                 </CardContent>
             </CardContent>
             {/*<CardActions>*/}

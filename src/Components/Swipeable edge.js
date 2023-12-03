@@ -11,7 +11,8 @@ import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import {useContext} from "react";
 import {ProductContext} from "../ProductContext/ProductContext"
-import CardInvertedColors from "./CardEdeeg";
+import TotalCash from "./TotalCash";
+import CardTotal from "./CardTotal"
 const drawerBleeding = 50;
 
 const Root = styled('div')(({theme}) => ({
@@ -110,8 +111,9 @@ function SwipeableEdgeDrawer(props) {
                     {/*    <CardInvertedColors/>*/}
                     {/*</Typography>*/}
                     <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px"}}>
-                        <CardInvertedColors totalCash={totalCash} total={total} />
-                        <CardInvertedColors totalCash={totalCash}/>
+                        {/*<CardInvertedColors totalCash={totalCash} total={total} />*/}
+                        <TotalCash totalCash={totalCash}/>
+                        <CardTotal totleCard={totleCard}/>
                     </div>
                 </div>
 
