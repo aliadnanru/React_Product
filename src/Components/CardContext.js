@@ -176,15 +176,6 @@ export default function CardContext({value, index, arr}) {
                                 ID:{index + 1}
                             </Grid>
                         </Grid>
-                        {/*<Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
-                        {/*    {index + 1}*/}
-                        {/*</Typography>*/}
-                        {/*<Typography style={{fontSize: "20px", fontWeight: "bolder"}}>{value.title}</Typography>*/}
-                        {/*<Typography level="h2">{value.pric + "₽"}</Typography>*/}
-                        {/*<Typography style={{fontSize: "15px", color: "brown"}}>*/}
-                        {/*    {value.moment}*/}
-
-                        {/*</Typography>*/}
                     </CardContent>
                 </CardContent>
                 <CardActions style={{
@@ -205,37 +196,6 @@ export default function CardContext({value, index, arr}) {
 
                 </CardActions>
             </Card>
-            {/*---000*/}
-            {/*<Card sx={{minWidth: 300}} style={{margin: "7px"}}>*/}
-            {/*    <CardContent style={{background: "dimgray"}}>*/}
-            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
-            {/*            {index + 1}*/}
-            {/*        </Typography>*/}
-            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
-            {/*            {value.title}*/}
-            {/*        </Typography>*/}
-
-            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder", color: "white"}}>*/}
-
-            {/*            {value.pric + "₽"}*/}
-            {/*        </Typography>*/}
-            {/*        <Typography style={{fontSize: "15px", color: "brown"}}>*/}
-            {/*            {value.moment}*/}
-
-            {/*        </Typography>*/}
-            {/*    </CardContent>*/}
-            {/*    <CardActions style={{display: "flex", justifyContent: "space-between"}}>*/}
-            {/*        <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>*/}
-            {/*        <Button style={{background: value.cash ? "gold" : "white", color: value.cash ? "black" : "red"}}*/}
-            {/*                onClick={HandelCashClick}*/}
-            {/*                size="small"><MonetizationOnIcon/></Button>*/}
-            {/*        <Button style={{background: value.card ? "green" : "white", color: value.card ? "white" : "green"}}*/}
-            {/*                onClick={HandelCardClick}*/}
-            {/*                size="small"><AddCardIcon/></Button>*/}
-            {/*        <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>*/}
-
-            {/*    </CardActions>*/}
-            {/*</Card>*/}
         </>
 
     );
