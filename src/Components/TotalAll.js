@@ -10,8 +10,6 @@ import {useEffect, useState} from "react";
 
 export default function TotalAll({total,ProductLength}) {
     const [V, setV] = useState(null)
-    console.log("v:" + V + " " + `to: ${total} `)
-
     useEffect(() => {
         const totleCard= total
         if (totleCard <= 100) {

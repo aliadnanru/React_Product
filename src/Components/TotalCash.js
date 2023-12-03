@@ -8,50 +8,50 @@ import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
 import {useEffect, useState} from "react";
 
-export default function TotalCash({totalCash}) {
+export default function TotalCash({totalCash,TotalCashLength}) {
     const [V, setV] = useState(null)
     useEffect(() => {
         const totleCard = totalCash
         if (totleCard <= 100) {
             setV(5)
-        } else if(totleCard <= 500){
+        } else if (totleCard <= 500) {
             setV(7)
-        }else if(totleCard <= 1000){
+        } else if (totleCard <= 1000) {
             setV(10)
-        }else if(totleCard <= 2000){
+        } else if (totleCard <= 2000) {
             setV(15)
-        }else if(totleCard <= 5000){
+        } else if (totleCard <= 5000) {
             setV(20)
-        }else if(totleCard <= 7000){
+        } else if (totleCard <= 7000) {
             setV(30)
-        }else if(totleCard <= 9000){
+        } else if (totleCard <= 9000) {
             setV(35)
-        }else if(totleCard <= 9000){
+        } else if (totleCard <= 9000) {
             setV(38)
-        }else if(totleCard <= 12000){
+        } else if (totleCard <= 12000) {
             setV(40)
-        }else if(totleCard <= 14000){
+        } else if (totleCard <= 14000) {
             setV(59)
-        }else if(totleCard <= 16000){
+        } else if (totleCard <= 16000) {
             setV(65)
-        }else if(totleCard <= 19000){
+        } else if (totleCard <= 19000) {
             setV(90)
-        }else if(totleCard <= 21000){
+        } else if (totleCard <= 21000) {
             setV(92)
-        }else if(totleCard <= 23000){
+        } else if (totleCard <= 23000) {
             setV(95)
-        }else if(totleCard <= 27000){
+        } else if (totleCard <= 27000) {
             setV(98)
-        }else if(totleCard <= 29000){
+        } else if (totleCard <= 29000) {
             setV(99)
-        }else {
+        } else {
             setV(0)
         }
 
 
     }, [totalCash])
     return (
-        <Card variant="solid" color="primary" invertedColors style={{margin:"5px",background:"indianred"}}>
+        <Card variant="solid" color="primary" invertedColors style={{margin: "5px", background: "indianred"}}>
             <CardContent orientation="horizontal">
                 <CircularProgress size="lg" determinate value={V}>
                     <SvgIcon>
@@ -71,8 +71,8 @@ export default function TotalCash({totalCash}) {
                     </SvgIcon>
                 </CircularProgress>
                 <CardContent>
-                    <Typography level="body-md">Total Cash</Typography>
-                    <Typography level="h2">{totalCash.length}₽</Typography>
+                    <Typography level="body-md">Total Cash:{TotalCashLength}</Typography>
+                    <Typography level="h2">{totalCash}₽</Typography>
                 </CardContent>
             </CardContent>
             {/*<CardActions>*/}

@@ -14,6 +14,7 @@ import {ProductContext} from "../ProductContext/ProductContext"
 import TotalCash from "./TotalCash";
 import CardTotal from "./CardTotal"
 import TotalAll from "./TotalAll"
+
 const drawerBleeding = 50;
 
 const Root = styled('div')(({theme}) => ({
@@ -40,7 +41,7 @@ function SwipeableEdgeDrawer(props) {
     const {window} = props;
     const [open, setOpen] = React.useState(true);
     const {product, setproduct} = useContext(ProductContext)
-    const ProductLength= product.length
+    const ProductLength = product.length
 
     const ReturnProduct = product.map((t, index, arr) => {
         return <div key={t.id}>
@@ -57,6 +58,14 @@ function SwipeableEdgeDrawer(props) {
         return t.cash
     })
     const totalCash = newCash.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
+    const LengthCash = product.filter((p) => {
+        return p.cash
+    })
+    const LengthCard = product.filter((p) => {
+        return p.card
+    })
+    const TotalCardLength = LengthCard.length
+     const TotalCashLength = LengthCash.length
 //totalCard
     const newCard = product.filter((t) => {
         return t.card
@@ -114,12 +123,18 @@ function SwipeableEdgeDrawer(props) {
                     {/*    {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}*/}
                     {/*    <CardInvertedColors/>*/}
                     {/*</Typography>*/}
-                    <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px"}}>
+                    <div style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        flexDirection: "column",
+                        alignItems: "center",
+                        margin: "20px"
+                    }}>
                         {/*<CardInvertedColors totalCash={totalCash} total={total} />*/}
 
                         <TotalAll total={total} ProductLength={ProductLength}/>
-                        <TotalCash totalCash={totalCash}/>
-                        <CardTotal totleCard={totleCard}/>
+                        <TotalCash totalCash={totalCash} TotalCashLength={TotalCashLength} />
+                        <CardTotal totleCard={totleCard} TotalCardLength={TotalCardLength}/>
                     </div>
                 </div>
 

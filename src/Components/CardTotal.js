@@ -8,7 +8,7 @@ import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
 import {useEffect, useState} from "react";
 
-export default function CardTotal({totleCard}) {
+export default function CardTotal({totleCard,TotalCardLength}) {
     const [V, setV] = useState(null)
     useEffect(() => {
         if (totleCard <= 100) {
@@ -70,7 +70,7 @@ export default function CardTotal({totleCard}) {
                     </SvgIcon>
                 </CircularProgress>
                 <CardContent>
-                    <Typography level="body-md">Total Card</Typography>
+                    <Typography level="body-md">Total Card:{TotalCardLength}</Typography>
                     <Typography level="h2">{totleCard}₽</Typography>
                 </CardContent>
             </CardContent>
