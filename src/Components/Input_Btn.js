@@ -130,12 +130,11 @@ export default function Input_Btn() {
                 flexDirection: "column",
                 margin: "5px"
             }}>
-                <label>товара: </label>
-                <input style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
+
+                <input placeholder={"товара:"} style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
                     setinpute({...inpute, inputeTitle: e.target.value})
                 }}/>
-                <label> Цена:</label>
-                <input style={{fontWeight: "bold", margin: "5px"}} type={"number"} value={inpute.inputePric}
+                <input placeholder={"Цена:"} style={{fontWeight: "bold", margin: "5px"}} type={"number"} value={inpute.inputePric}
                        onChange={(e) => {
                            setinpute({...inpute, inputePric: e.target.value})
                        }}/>
