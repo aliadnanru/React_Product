@@ -163,7 +163,7 @@ export default function CardContext({value, index, arr}) {
                             sx={{ width: '100%' }}
                             style={{textAlign:"center"}}
                         >
-                            <Grid style={{fontWeight:"bold"}} xs={10}>
+                            <Grid style={{fontWeight:"bold",display:"flex",alignItems:"center"}} xs={10}>
                                 {value.title}
                             </Grid>
                             <Grid style={{fontWeight:"bold",fontSize:"17px"}}  xs={2}>

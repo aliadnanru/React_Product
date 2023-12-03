@@ -67,7 +67,8 @@ export default function Input_Btn() {
             ShowAlert("Товар добавлен")
         } else {
 
-            alert("Null")
+            ShowAlert("الحقووول فارغة يعود🤬! شتريد اضيف!!!")
+
 
         }
 
