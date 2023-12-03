@@ -64,7 +64,7 @@ export default function Input_Btn() {
             localStorage.setItem("product", JSON.stringify(updatedProduct))
 
             setproduct(updatedProduct)
-            ShowAlert("Товар добавлен")
+            ShowAlert("Товар добавлен ✅")
         } else {
 
             ShowAlert("الحقووول فارغة يعود🤬! شتريد اضيف!!!")
@@ -88,7 +88,7 @@ export default function Input_Btn() {
         localStorage.setItem("product", JSON.stringify(DelletAll))
 
         setproduct(DelletAll)
-        ShowAlert("Все товары удалены")
+        ShowAlert("Все товары удалены ✅")
         setOpen(false);
 
     }

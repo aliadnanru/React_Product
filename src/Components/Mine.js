@@ -19,7 +19,7 @@ export default function Mine() {
     // const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
     useEffect(() => {
         const storageProduct = JSON.parse(localStorage.getItem("product")) ?? [];
-        ShowAlert("تم التحديث الصفحة")
+        ShowAlert("تم التحديث الصفحة ✅")
         setproduct(storageProduct)
     }, []);
 

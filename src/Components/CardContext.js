@@ -76,9 +76,9 @@ export default function CardContext({value, index, arr}) {
             if (t.id === value.id) {
                 t.cash = !t.cash
                 if (t.cash === true) {
-                    ShowAlert("Добавлено в кэш")
+                    ShowAlert("Добавлено в кэш 💰")
                 } else {
-                    ShowAlert("Удален из кеша")
+                    ShowAlert("Удален из кеша 🪜 💰")
                 }
             }
 
@@ -96,9 +96,9 @@ export default function CardContext({value, index, arr}) {
             if (t.id === value.id) {
                 t.card = !t.card
                 if (t.card === true) {
-                    ShowAlert("Изменено на перевод")
+                    ShowAlert("Изменено на перевод  💸 ")
                 } else {
-                    ShowAlert("Изменено на карту")
+                    ShowAlert("Изменено на карту 💳")
                 }
             }
             return t
