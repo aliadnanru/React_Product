@@ -1,9 +1,5 @@
 import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
-import CardContent from '@mui/material/CardContent';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+
 import {ProductContext} from "../ProductContext/ProductContext";
 import {useContext, useState} from "react";
 import {InputeContext} from "../ProductContext/InputeContext";
@@ -19,6 +15,17 @@ import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import {AlertContext} from "../ProductContext/AlertContext";
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+
+//jou
+import Button from '@mui/joy/Button';
+import Card from '@mui/joy/Card';
+import CardContent from '@mui/joy/CardContent';
+import CardActions from '@mui/joy/CardActions';
+import CircularProgress from '@mui/joy/CircularProgress';
+import Typography from '@mui/joy/Typography';
+import SvgIcon from '@mui/joy/SvgIcon';
+import {Grid} from "@mui/joy";
 
 export default function CardContext({value, index, arr}) {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
@@ -145,25 +152,48 @@ export default function CardContext({value, index, arr}) {
                 </DialogActions>
             </Dialog>
             {/*---Dialog*/}
-            <Card sx={{minWidth: 300}} style={{margin: "7px"}}>
-                <CardContent style={{background: "dimgray"}}>
-                    <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
-                        {index + 1}
-                    </Typography>
-                    <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>
-                        {value.title}
-                    </Typography>
+            {/*00000*/}
+            <Card variant="solid" color="primary" invertedColors style={{width: "300px", margin: "5px"}}>
+                <CardContent orientation="horizontal">
+                    <CardContent>
+                        <Grid
+                            container
+                            rowSpacing={1}
+                            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
+                            sx={{ width: '100%' }}
+                            style={{textAlign:"center"}}
+                        >
+                            <Grid style={{fontWeight:"bold",borderRadius:"5px"}} xs={8}>
+                                {value.title}
+                            </Grid>
+                            <Grid  xs={4}>
+                                {value.pric + "₽"}
+                            </Grid>
+                            <Grid style={{display:"flex",alignItems:"center",justifyContent:"center"}} xs={6}>
+                                <AccessTimeIcon/> {value.moment}
+                            </Grid>
+                            <Grid xs={6}>
+                                ID:{index + 1}
+                            </Grid>
+                        </Grid>
+                        {/*<Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
+                        {/*    {index + 1}*/}
+                        {/*</Typography>*/}
+                        {/*<Typography style={{fontSize: "20px", fontWeight: "bolder"}}>{value.title}</Typography>*/}
+                        {/*<Typography level="h2">{value.pric + "₽"}</Typography>*/}
+                        {/*<Typography style={{fontSize: "15px", color: "brown"}}>*/}
+                        {/*    {value.moment}*/}
 
-                    <Typography style={{fontSize: "20px", fontWeight: "bolder", color: "white"}}>
-
-                        {value.pric + "₽"}
-                    </Typography>
-                    <Typography style={{fontSize: "15px", color: "brown"}}>
-                        {value.moment}
-
-                    </Typography>
+                        {/*</Typography>*/}
+                    </CardContent>
                 </CardContent>
-                <CardActions style={{display: "flex", justifyContent: "space-between"}}>
+                <CardActions style={{
+                    display: "flex",
+                    justifyContent: "space-between",
+                    background: "gray",
+                    padding: "5px",
+                    borderRadius: "5px"
+                }}>
                     <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>
                     <Button style={{background: value.cash ? "gold" : "white", color: value.cash ? "black" : "red"}}
                             onClick={HandelCashClick}
@@ -175,6 +205,37 @@ export default function CardContext({value, index, arr}) {
 
                 </CardActions>
             </Card>
+            {/*---000*/}
+            {/*<Card sx={{minWidth: 300}} style={{margin: "7px"}}>*/}
+            {/*    <CardContent style={{background: "dimgray"}}>*/}
+            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
+            {/*            {index + 1}*/}
+            {/*        </Typography>*/}
+            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder"}}>*/}
+            {/*            {value.title}*/}
+            {/*        </Typography>*/}
+
+            {/*        <Typography style={{fontSize: "20px", fontWeight: "bolder", color: "white"}}>*/}
+
+            {/*            {value.pric + "₽"}*/}
+            {/*        </Typography>*/}
+            {/*        <Typography style={{fontSize: "15px", color: "brown"}}>*/}
+            {/*            {value.moment}*/}
+
+            {/*        </Typography>*/}
+            {/*    </CardContent>*/}
+            {/*    <CardActions style={{display: "flex", justifyContent: "space-between"}}>*/}
+            {/*        <Button onClick={HandelDeleteClick} size="small"><DeleteSweepIcon/></Button>*/}
+            {/*        <Button style={{background: value.cash ? "gold" : "white", color: value.cash ? "black" : "red"}}*/}
+            {/*                onClick={HandelCashClick}*/}
+            {/*                size="small"><MonetizationOnIcon/></Button>*/}
+            {/*        <Button style={{background: value.card ? "green" : "white", color: value.card ? "white" : "green"}}*/}
+            {/*                onClick={HandelCardClick}*/}
+            {/*                size="small"><AddCardIcon/></Button>*/}
+            {/*        <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>*/}
+
+            {/*    </CardActions>*/}
+            {/*</Card>*/}
         </>
 
     );

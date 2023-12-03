@@ -10,7 +10,6 @@ import {useEffect, useState} from "react";
 
 export default function CardTotal({totleCard}) {
     const [V, setV] = useState(null)
-    console.log("v:" + V + " " + `to: ${totleCard} `)
     useEffect(() => {
         if (totleCard <= 100) {
             setV(5)
