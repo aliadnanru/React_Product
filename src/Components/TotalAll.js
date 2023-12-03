@@ -53,7 +53,7 @@ export default function TotalAll({total}) {
 
     }, [V,total])
     return (
-        <Card variant="solid" color="primary" invertedColors style={{margin: "5px"}}>
+        <Card variant="solid" color="primary" invertedColors style={{margin: "5px",background:"green"}}>
             <CardContent orientation="horizontal">
                 <CircularProgress size="lg" determinate value={V}>
                     <SvgIcon>

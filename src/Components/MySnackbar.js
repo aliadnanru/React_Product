@@ -25,12 +25,13 @@ export default function MySnackbar({msg}) {
     );
 
     return (
-        <div>
+        <div style={{background:"red",display:"flex",justifyContent:"start",alignItems:"end"}}>
             <Snackbar
                 open={openAlert}
                 autoHideDuration={1000}
                 message="Note archived"
                 action={action}
+
             >
                 <Alert style={{background:"green",color:"white",fontWeight:"bold"}} variant="filled" severity="success">
                     {msg}

@@ -49,7 +49,7 @@ export default function CardTotal({totleCard}) {
         }
 
 
-    }, [V,totleCard])
+    }, [totleCard])
     return (
         <Card variant="solid" color="primary" invertedColors style={{margin: "5px"}}>
             <CardContent orientation="horizontal">

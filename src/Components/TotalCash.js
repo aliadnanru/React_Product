@@ -9,7 +9,7 @@ import SvgIcon from '@mui/joy/SvgIcon';
 
 export default function TotalCash({totalCash,total}) {
     return (
-        <Card variant="solid" color="primary" invertedColors style={{margin:"5px"}}>
+        <Card variant="solid" color="primary" invertedColors style={{margin:"5px",background:"indianred"}}>
             <CardContent orientation="horizontal">
                 <CircularProgress size="lg" determinate value={20}>
                     <SvgIcon>
