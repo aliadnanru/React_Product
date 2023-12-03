@@ -40,6 +40,8 @@ function SwipeableEdgeDrawer(props) {
     const {window} = props;
     const [open, setOpen] = React.useState(true);
     const {product, setproduct} = useContext(ProductContext)
+    const ProductLength= product.length
+
     const ReturnProduct = product.map((t, index, arr) => {
         return <div key={t.id}>
             <h5>{t.title}:{t.pric}p </h5>
@@ -98,7 +100,8 @@ function SwipeableEdgeDrawer(props) {
                     }}
                 >
                     <Puller/>
-                    <Typography sx={{p: 2, color: 'text.secondary'}}>информация</Typography>
+                    <Typography sx={{p: 2, color: 'text.secondary'}}>информация </Typography>
+
                 </StyledBox>
                 <div style={{
                     overflow: "scroll",
@@ -113,7 +116,8 @@ function SwipeableEdgeDrawer(props) {
                     {/*</Typography>*/}
                     <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px"}}>
                         {/*<CardInvertedColors totalCash={totalCash} total={total} />*/}
-                        <TotalAll total={total}/>
+
+                        <TotalAll total={total} ProductLength={ProductLength}/>
                         <TotalCash totalCash={totalCash}/>
                         <CardTotal totleCard={totleCard}/>
                     </div>

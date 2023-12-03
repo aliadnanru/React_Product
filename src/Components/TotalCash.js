@@ -72,7 +72,7 @@ export default function TotalCash({totalCash}) {
                 </CircularProgress>
                 <CardContent>
                     <Typography level="body-md">Total Cash</Typography>
-                    <Typography level="h2">{totalCash}₽</Typography>
+                    <Typography level="h2">{totalCash.length}₽</Typography>
                 </CardContent>
             </CardContent>
             {/*<CardActions>*/}

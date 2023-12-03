@@ -8,7 +8,7 @@ import Typography from '@mui/joy/Typography';
 import SvgIcon from '@mui/joy/SvgIcon';
 import {useEffect, useState} from "react";
 
-export default function TotalAll({total}) {
+export default function TotalAll({total,ProductLength}) {
     const [V, setV] = useState(null)
     console.log("v:" + V + " " + `to: ${total} `)
 
@@ -73,7 +73,7 @@ export default function TotalAll({total}) {
                     </SvgIcon>
                 </CircularProgress>
                 <CardContent>
-                    <Typography level="body-md">Total All</Typography>
+                    <Typography level="body-md">Total All : {ProductLength}</Typography>
                     <Typography level="h2">{total}₽</Typography>
                 </CardContent>
             </CardContent>
