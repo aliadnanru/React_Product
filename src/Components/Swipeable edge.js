@@ -4,9 +4,7 @@ import {Global} from '@emotion/react';
 import {styled} from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import {grey} from '@mui/material/colors';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import {useContext} from "react";
@@ -14,8 +12,6 @@ import {ProductContext} from "../ProductContext/ProductContext"
 import TotalCash from "./TotalCash";
 import CardTotal from "./CardTotal"
 import TotalAll from "./TotalAll"
-import {BarChart} from '@mui/x-charts/BarChart';
-import {PieChart} from "@mui/x-charts";
 
 const drawerBleeding = 50;
 
@@ -44,12 +40,6 @@ function SwipeableEdgeDrawer(props) {
     const [open, setOpen] = React.useState(true);
     const {product, setproduct} = useContext(ProductContext)
     const ProductLength = product.length
-
-    const ReturnProduct = product.map((t, index, arr) => {
-        return <div key={t.id}>
-            <h5>{t.title}:{t.pric}p </h5>
-        </div>;
-    });
     const toggleDrawer = (newOpen) => () => {
         setOpen(newOpen);
     };
@@ -67,7 +57,7 @@ function SwipeableEdgeDrawer(props) {
         return p.card
     })
     const TotalCardLength = LengthCard.length
-    const TotalCashLength = LengthCash.length
+     const TotalCashLength = LengthCash.length
 //totalCard
     const newCard = product.filter((t) => {
         return t.card
@@ -129,27 +119,11 @@ function SwipeableEdgeDrawer(props) {
                         margin: "20px"
                     }}>
                         <TotalAll total={total} ProductLength={ProductLength}/>
-                        <TotalCash totalCash={totalCash} TotalCashLength={TotalCashLength}/>
+                        <TotalCash totalCash={totalCash} TotalCashLength={TotalCashLength} />
                         <CardTotal totleCard={totleCard} TotalCardLength={TotalCardLength}/>
                     </div>
-                    <div>
 
 
-                        <PieChart
-                            series={[
-                                {
-                                    data: [
-                                        // {id: 0, value: ` ${product.length}`, label: 'series A'},
-                                        {id: 1, value: `${TotalCashLength}`, label: ' Cash B'},
-                                        {id: 2, value: `${TotalCardLength}`, label: 'Card C'},
-                                    ],
-                                },
-                            ]}
-                            width={400}
-                            height={200}
-                        />
-
-                    </div>
                 </div>
 
             </SwipeableDrawer>
