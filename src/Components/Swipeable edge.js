@@ -11,6 +11,7 @@ import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import {useContext} from "react";
 import {ProductContext} from "../ProductContext/ProductContext"
+import CardInvertedColors from "./CardEdeeg";
 const drawerBleeding = 50;
 
 const Root = styled('div')(({theme}) => ({
@@ -104,9 +105,14 @@ function SwipeableEdgeDrawer(props) {
                     alignItems: "center",
                     flexDirection: "column"
                 }}>
-                    <Typography style={{margin: "10px", color: "black", fontWeight: "bold"}}>
-                        {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}
-                    </Typography>
+                    {/*<Typography style={{margin: "10px", color: "black", fontWeight: "bold"}}>*/}
+                    {/*    {`Тотол: ${total}₽ | 💰:${totalCash}₽ | 💳:${totleCard}₽ `}*/}
+                    {/*    <CardInvertedColors/>*/}
+                    {/*</Typography>*/}
+                    <div style={{display:"flex",justifyContent:"center",flexDirection:"column",alignItems:"center" ,margin:"20px",width:"100px"}}>
+                        <CardInvertedColors />
+                        <CardInvertedColors/>
+                    </div>
                 </div>
 
             </SwipeableDrawer>
