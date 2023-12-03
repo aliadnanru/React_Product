@@ -10,9 +10,8 @@ import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import {useContext} from "react";
-import {ProductContext} from "../ProductContext/ProductContext";
-
-const drawerBleeding = 56;
+import {ProductContext} from "../ProductContext/ProductContext"
+const drawerBleeding = 50;
 
 const Root = styled('div')(({theme}) => ({
     height: '100%',

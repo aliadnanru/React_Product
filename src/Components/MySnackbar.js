@@ -3,33 +3,21 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
-import {Alert} from "@mui/material";
+import {Alert} from "@mui/joy";
+import {useContext,useState} from "react";
+import {AlertContext} from "../ProductContext/AlertContext";
 
-export default function MySnackbar() {
-    const [open, setOpen] = React.useState(false);
+export default function MySnackbar({msg}) {
+    const {openAlert, setOpenAlert} = useContext(AlertContext);
 
-    const handleClick = () => {
-        setOpen(true);
-    };
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
-
-        setOpen(false);
-    };
 
     const action = (
         <React.Fragment>
-            <Button color="secondary" size="small" onClick={handleClose}>
-                UNDO
-            </Button>
             <IconButton
                 size="small"
                 aria-label="close"
                 color="inherit"
-                onClick={handleClose}
             >
                 <CloseIcon fontSize="small"/>
             </IconButton>
@@ -38,16 +26,15 @@ export default function MySnackbar() {
 
     return (
         <div>
-            <Button onClick={handleClick}>Open simple snackbar</Button>
             <Snackbar
-                open={open}
-                autoHideDuration={2000}
-                onClose={handleClose}
+                open={openAlert}
+                autoHideDuration={1000}
                 message="Note archived"
                 action={action}
             >
-                <Alert severity="success">This is a success message!</Alert>
-
+                <Alert style={{background:"green",color:"white",fontWeight:"bold"}} variant="filled" severity="success">
+                    {msg}
+                </Alert>
             </Snackbar>
         </div>
     );

@@ -4,15 +4,13 @@ import {ProductContext} from "../ProductContext/ProductContext";
 import {Container} from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
-import WhatsappSendData from "./WhatsappSendData";
-import BasicSwitches from "./Switch";
-import SwipeableEdgeDrawer from "./Swipeable edge";
-import BasicSpeedDial from "./SpeedDial";
-//BasicSwitches
+import {AlertContext} from "../ProductContext/AlertContext";
+
 
 
 export default function Mine() {
+    const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
+
     const {product, setproduct} = useContext(ProductContext)
     const ReturnProduct = product.map((t, index, arr) => {
         return <CardContext key={t.id} value={t} index={index} arr={arr}/>;
@@ -21,6 +19,7 @@ export default function Mine() {
     // const total = product.reduce((acc, p) => Number(acc) + Number(p.pric), 0)
     useEffect(() => {
         const storageProduct = JSON.parse(localStorage.getItem("product")) ?? [];
+        ShowAlert("تم التحديث الصفحة")
         setproduct(storageProduct)
     }, []);
 
@@ -34,9 +33,10 @@ export default function Mine() {
             justifyContent: "end",
             alignItems: "center",
             flexDirection: "column",
-            marginTop:"25px"
+            marginTop: "25px"
 
         }}>
+
             {/*Title*/}
             {/*<Typography style={{margin: "10px",color:"white",fontWeight:"bolder"}}>*/}
             {/*    POS*/}
@@ -66,7 +66,6 @@ export default function Mine() {
 
                     </CardContent>
                 </div>
-
 
             </Card>
 

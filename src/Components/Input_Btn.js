@@ -5,8 +5,6 @@ import {ProductContext} from "../ProductContext/ProductContext";
 // icons
 import ControlPointIcon from '@mui/icons-material/ControlPoint';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-//alert
-import MySnackbar from "./MySnackbar"
 
 
 import WhatsappSendData from "./WhatsappSendData";
@@ -17,12 +15,10 @@ import DialogContent from "@mui/material/DialogContent";
 import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
-import {Alert} from "@mui/material";
-import {Howl} from 'howler';
-import BasicSpeedDial from "./SpeedDial";
-
+import {AlertContext} from "../ProductContext/AlertContext";
 
 export default function Input_Btn() {
+    const {openAlert, setOpenAlert,ShowAlert} = useContext(AlertContext);
     const {product, setproduct} = useContext(ProductContext)
     const {inpute, setinpute} = useContext(InputeContext)
 
@@ -68,6 +64,7 @@ export default function Input_Btn() {
             localStorage.setItem("product", JSON.stringify(updatedProduct))
 
             setproduct(updatedProduct)
+            ShowAlert("Товар добавлен")
         } else {
 
             alert("Null")
@@ -90,6 +87,7 @@ export default function Input_Btn() {
         localStorage.setItem("product", JSON.stringify(DelletAll))
 
         setproduct(DelletAll)
+        ShowAlert("Все товары удалены")
         setOpen(false);
 
     }
@@ -132,7 +130,7 @@ export default function Input_Btn() {
                 margin: "5px"
             }}>
                 <label>товара: </label>
-                <input style={{fontWeight: "bold", margin: "5px"}}  value={inpute.inputeTitle} onChange={(e) => {
+                <input style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
                     setinpute({...inpute, inputeTitle: e.target.value})
                 }}/>
                 <label> Цена:</label>

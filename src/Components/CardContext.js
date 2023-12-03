@@ -18,8 +18,11 @@ import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 import AutoFixHighIcon from '@mui/icons-material/AutoFixHigh';
 import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import AddCardIcon from '@mui/icons-material/AddCard';
+import {AlertContext} from "../ProductContext/AlertContext";
 
 export default function CardContext({value, index, arr}) {
+    const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
+
     const [open, setOpen] = React.useState(false);
     const {product, setproduct} = useContext(ProductContext)
     const [updatedProduct, setUpdatedProduct] = useState({
@@ -39,7 +42,7 @@ export default function CardContext({value, index, arr}) {
 
         })
         localStorage.setItem("product", JSON.stringify(ProductEdite))
-
+        ShowAlert("Изменено успешно")
         setproduct(ProductEdite)
         setOpen(false);
     };
@@ -57,7 +60,7 @@ export default function CardContext({value, index, arr}) {
             return Delete.id !== value.id
         })
         localStorage.setItem("product", JSON.stringify(DeleteProduct))
-
+        ShowAlert("Товар удален")
         setproduct(DeleteProduct)
     }
 
@@ -65,7 +68,14 @@ export default function CardContext({value, index, arr}) {
         const CashClick = product.map((t) => {
             if (t.id === value.id) {
                 t.cash = !t.cash
+                if (t.cash === true) {
+                    ShowAlert("Добавлено в кэш")
+                } else {
+                    ShowAlert("Удален из кеша")
+                }
             }
+
+
             return t
         })
         console.log(arr)
@@ -78,12 +88,18 @@ export default function CardContext({value, index, arr}) {
         const CardClick = product.map((t) => {
             if (t.id === value.id) {
                 t.card = !t.card
+                if (t.card === true) {
+                    ShowAlert("Изменено на перевод")
+                } else {
+                    ShowAlert("Изменено на карту")
+                }
             }
             return t
 
         })
         console.log(CardClick)
         localStorage.setItem("product", JSON.stringify(CardClick))
+
         setproduct(CardClick)
     }
 
