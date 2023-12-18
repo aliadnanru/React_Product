@@ -22,10 +22,8 @@ import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import CardContent from '@mui/joy/CardContent';
 import CardActions from '@mui/joy/CardActions';
-import CircularProgress from '@mui/joy/CircularProgress';
-import Typography from '@mui/joy/Typography';
-import SvgIcon from '@mui/joy/SvgIcon';
-import {Grid} from "@mui/joy";
+
+import {Dropdown, Grid, Menu, MenuButton, MenuItem} from "@mui/joy";
 
 export default function CardContext({value, index, arr}) {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
@@ -159,17 +157,17 @@ export default function CardContext({value, index, arr}) {
                         <Grid
                             container
                             rowSpacing={1}
-                            columnSpacing={{ xs: 1, sm: 2, md: 3 }}
-                            sx={{ width: '100%' }}
-                            style={{textAlign:"center"}}
+                            columnSpacing={{xs: 1, sm: 2, md: 3}}
+                            sx={{width: '100%'}}
+                            style={{textAlign: "center"}}
                         >
-                            <Grid style={{fontWeight:"bold",display:"flex",alignItems:"center"}} xs={10}>
+                            <Grid style={{fontWeight: "bold", display: "flex", alignItems: "center"}} xs={10}>
                                 {value.title}
                             </Grid>
-                            <Grid style={{fontWeight:"bold",fontSize:"17px"}}  xs={2}>
+                            <Grid style={{fontWeight: "bold", fontSize: "17px"}} xs={2}>
                                 {value.pric + "₽"}
                             </Grid>
-                            <Grid style={{fontWeight:"bold",display:"flex",alignItems:"center"}} xs={10}>
+                            <Grid style={{fontWeight: "bold", display: "flex", alignItems: "center"}} xs={10}>
                                 <AccessTimeIcon/> {value.moment}
                             </Grid>
                             <Grid xs={2}>
@@ -195,6 +193,7 @@ export default function CardContext({value, index, arr}) {
                     <Button onClick={(handleOpen)} size="small"><AutoFixHighIcon/></Button>
 
                 </CardActions>
+
             </Card>
         </>
 

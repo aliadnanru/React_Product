@@ -16,9 +16,12 @@ import Button from "@mui/material/Button";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContentText from "@mui/material/DialogContentText";
 import {AlertContext} from "../ProductContext/AlertContext";
+//useSound
+import useSound from 'use-sound';
+import boopSfx from '../GTA San Andreas - Mission passed sound.mp3';
 
 export default function Input_Btn() {
-    const {openAlert, setOpenAlert,ShowAlert} = useContext(AlertContext);
+    const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
     const {product, setproduct} = useContext(ProductContext)
     const {inpute, setinpute} = useContext(InputeContext)
 
@@ -48,6 +51,7 @@ export default function Input_Btn() {
 
 
     // HandelClickAdd
+    const [play] = useSound(boopSfx);
 
     function HandelClickAdd() {
         if (inpute.inputePric && inpute.inputeTitle !== "") {
@@ -60,10 +64,12 @@ export default function Input_Btn() {
                 moment: moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];
-
+            play()
             localStorage.setItem("product", JSON.stringify(updatedProduct))
 
             setproduct(updatedProduct)
+
+
             ShowAlert("Товар добавлен ✅")
         } else {
 
@@ -131,10 +137,12 @@ export default function Input_Btn() {
                 margin: "5px"
             }}>
 
-                <input placeholder={"товара:"} style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle} onChange={(e) => {
-                    setinpute({...inpute, inputeTitle: e.target.value})
-                }}/>
-                <input placeholder={"Цена:"} style={{fontWeight: "bold", margin: "5px"}} type={"number"} value={inpute.inputePric}
+                <input placeholder={"товара:"} style={{fontWeight: "bold", margin: "5px"}} value={inpute.inputeTitle}
+                       onChange={(e) => {
+                           setinpute({...inpute, inputeTitle: e.target.value})
+                       }}/>
+                <input placeholder={"Цена:"} style={{fontWeight: "bold", margin: "5px"}} type={"number"}
+                       value={inpute.inputePric}
                        onChange={(e) => {
                            setinpute({...inpute, inputePric: e.target.value})
                        }}/>
