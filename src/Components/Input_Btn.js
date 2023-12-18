@@ -18,7 +18,7 @@ import DialogContentText from "@mui/material/DialogContentText";
 import {AlertContext} from "../ProductContext/AlertContext";
 //useSound
 import useSound from 'use-sound';
-import boopSfx from '../GTA San Andreas - Mission passed sound.mp3';
+import boopSfx from '../add.mp3';
 
 export default function Input_Btn() {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
