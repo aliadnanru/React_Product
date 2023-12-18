@@ -19,6 +19,8 @@ import {AlertContext} from "../ProductContext/AlertContext";
 //useSound
 import useSound from 'use-sound';
 import boopSfx from '../add.mp3';
+import boopSfx2 from '../g.mp3';
+
 
 export default function Input_Btn() {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
@@ -51,7 +53,11 @@ export default function Input_Btn() {
 
 
     // HandelClickAdd
-    const [play] = useSound(boopSfx);
+
+    const [playAdd] = useSound(boopSfx);
+    const [playFirst] = useSound(boopSfx2);
+
+
 
     function HandelClickAdd() {
         if (inpute.inputePric && inpute.inputeTitle !== "") {
@@ -64,9 +70,13 @@ export default function Input_Btn() {
                 moment: moment().format('h:mm')
             }
             const updatedProduct = [...product, newProduct];
-            play()
             localStorage.setItem("product", JSON.stringify(updatedProduct))
-
+            if (product.length == 0) {
+                playFirst()
+                ShowAlert("مبروك اول تفارffffffffffffffffff")
+            } else {
+                playAdd()
+            }
             setproduct(updatedProduct)
 
 

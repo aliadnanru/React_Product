@@ -16,6 +16,7 @@ import MonetizationOnIcon from '@mui/icons-material/MonetizationOn';
 import AddCardIcon from '@mui/icons-material/AddCard';
 import {AlertContext} from "../ProductContext/AlertContext";
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import useSound from 'use-sound';
 
 //jou
 import Button from '@mui/joy/Button';
@@ -24,6 +25,7 @@ import CardContent from '@mui/joy/CardContent';
 import CardActions from '@mui/joy/CardActions';
 
 import {Dropdown, Grid, Menu, MenuButton, MenuItem} from "@mui/joy";
+import boopSfxdelete from '../delete.mp3';
 
 export default function CardContext({value, index, arr}) {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
@@ -34,6 +36,8 @@ export default function CardContext({value, index, arr}) {
         title: value.title,
         pric: value.pric,
     });
+    const [playdelete] = useSound(boopSfxdelete);
+
     // Dialog
     const handleDone = () => {
         const ProductEdite = product.map((t) => {
@@ -66,6 +70,7 @@ export default function CardContext({value, index, arr}) {
         })
         localStorage.setItem("product", JSON.stringify(DeleteProduct))
         ShowAlert("Товар удален")
+        playdelete()
         setproduct(DeleteProduct)
     }
 
