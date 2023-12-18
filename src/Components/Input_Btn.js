@@ -20,6 +20,8 @@ import {AlertContext} from "../ProductContext/AlertContext";
 import useSound from 'use-sound';
 import boopSfx from '../add.mp3';
 import boopSfx2 from '../g.mp3';
+import AHSHITK from '../AHSHITK.mp3';
+
 
 
 export default function Input_Btn() {
@@ -55,6 +57,8 @@ export default function Input_Btn() {
     // HandelClickAdd
 
     const [playAdd] = useSound(boopSfx);
+    const [playAHSHITK] = useSound(AHSHITK);
+
     const [playFirst] = useSound(boopSfx2);
 
 
@@ -106,7 +110,7 @@ export default function Input_Btn() {
         setproduct(DelletAll)
         ShowAlert("Все товары удалены ✅")
         setOpen(false);
-
+        playAHSHITK()
     }
 
     //---HandelDelletAll
