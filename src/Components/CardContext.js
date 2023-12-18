@@ -26,6 +26,8 @@ import CardActions from '@mui/joy/CardActions';
 
 import {Dropdown, Grid, Menu, MenuButton, MenuItem} from "@mui/joy";
 import boopSfxdelete from '../delete.mp3';
+import boopSfxClikc from '../Click.mp3';
+
 
 export default function CardContext({value, index, arr}) {
     const {openAlert, setOpenAlert, ShowAlert} = useContext(AlertContext);
@@ -37,6 +39,9 @@ export default function CardContext({value, index, arr}) {
         pric: value.pric,
     });
     const [playdelete] = useSound(boopSfxdelete);
+    const [playClikc] = useSound(boopSfxClikc);
+
+
 
     // Dialog
     const handleDone = () => {
@@ -89,7 +94,7 @@ export default function CardContext({value, index, arr}) {
             return t
         })
         console.log(arr)
-
+        playClikc()
         localStorage.setItem("product", JSON.stringify(CashClick))
         setproduct(CashClick)
     }
@@ -109,7 +114,7 @@ export default function CardContext({value, index, arr}) {
         })
         console.log(CardClick)
         localStorage.setItem("product", JSON.stringify(CardClick))
-
+        playClikc()
         setproduct(CardClick)
     }
 
